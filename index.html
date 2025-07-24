@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>느루케어 링크</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NW3T8ZTD4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8NW3T8ZTD4');
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -229,12 +239,12 @@
                 const linkText = this.querySelector('.text').textContent;
                 console.log(`링크 클릭: ${linkText}`);
                 
-                // 구글 애널리틱스 이벤트 추적 예시
-                // gtag('event', 'click', {
-                //     event_category: 'QR Links',
-                //     event_label: linkText
-                // });
-            });
+                // 구글 애널리틱스 이벤트 추적
+                gtag('event', 'click', {
+                event_category: 'QR Links',
+                event_label: linkText
+                });
+            }); 
         });
         
         // 터치 피드백 (모바일)
